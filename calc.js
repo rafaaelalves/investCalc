@@ -1,14 +1,9 @@
-let investido = 3122 // Se refere ao valor investido em fundos imobiliarios
-const dividendYield = 0.013 //Taxa de dividendo mensal da carteira
-
-let aporteSalario = 0
-
-objetivo = 1000
 
 function investir(investido, dividendYield, aporteSalario, objetivo){
     let proventos = 0
     let mes = 0
     let aportado = 0
+
     while (proventos < objetivo){
         proventos = investido * dividendYield
         if (Number.isInteger(mes/12)){
@@ -18,8 +13,14 @@ function investir(investido, dividendYield, aporteSalario, objetivo){
         aportado+= aporteSalario
         mes+= 1
     }
-    return 'Em ' + mes/12 + ' anos, R$ ' + investido + ' investidos, e um retorno de R$' + proventos + ' mensais. O total aportado foi de R$' + aportado
+
+    mes = mes/12
+    mes= mes.toFixed(1)
+    investido = investido.toFixed(2)
+    proventos = proventos.toFixed(2)
+    
+    return 'Em ' + mes + ' anos, foram aportados R$ ' + aportado + ', resultando num montante de R$ ' + investido + ', gerando um dividendo de R$ ' + proventos + '.'
 
 }
 
-console.log(investir(0, 0.013, 350, 1000))
+console.log(investir(6000, 0.013, 350, 1000))
